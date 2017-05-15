@@ -3,11 +3,29 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="book" class="Book" >
-        <constructor-arg value="Math" index="0" type="java.lang.String" />
-        <constructor-arg value="22.5f" index="1" type="float" />
-        <!--<property name="name" value="Math" />-->
-        <!--<property name="price" value="22.5f" />-->
+    <bean id="book" class="Book" autowire="byName">
+        <property name="name" value="Math"/>
+        <property name="price" value="22.5f"/>
+        <!--<property name="authorsList" >-->
+            <!--<list>-->
+                <!--<ref bean="author1" />-->
+                <!--<ref bean="author2" />-->
+            <!--</list>-->
+        <!--</property>-->
     </bean>
+
+    <alias name="book" alias="book-alias" />
+
+    <bean id="author" class="Author">
+        <property name="name" value="Pardeep" />
+    </bean>
+
+    <!--<bean id="author2" class="Author">
+        <property name="name" value="Pardeep1" />
+    </bean>-->
+
+    <!--<bean id="author" class="Author">-->
+    <!--<property name="name" value="Pardeep" />-->
+    <!--</bean>-->
 
 </beans>

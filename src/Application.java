@@ -16,9 +16,11 @@ public class Application {
 
         ApplicationContext context = new ClassPathXmlApplicationContext("springConfig.xml");
 
-        Book book = (Book) context.getBean("book");
-
+        Book book = (Book) context.getBean("book-alias");
         book.print();
+
+        Book book1 = (Book) context.getBean("book-alias");
+        book1.print();
 
     }
 
